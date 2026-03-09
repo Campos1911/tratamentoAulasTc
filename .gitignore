@@ -1,0 +1,14 @@
+# Ambientes virtuais
+venv/
+.env
+
+# Logs
+logs/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Ignorar apenas CSV dentro de input
+data/input/*.csv
+data/output/*.csv
