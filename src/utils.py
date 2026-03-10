@@ -7,11 +7,15 @@ load_dotenv()
 supabase = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
 
 def parse_datetime(v):
-    if pd.isna(v): return None
+    if pd.isna(v):
+        return None
     try:
-        return pd.to_datetime(v, format="%d/%m/%Y %H:%M", utc=True).isoformat()
+        dt = pd.to_datetime(v)          
+        dt = dt + pd.Timedelta(hours=3) 
+        return dt.isoformat()
     except:
         return None
+
 
 def safe_int(v):
     try: 
