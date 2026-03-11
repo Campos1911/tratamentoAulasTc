@@ -10,7 +10,7 @@ def parse_datetime(v):
     if pd.isna(v):
         return None
     try:
-        dt = pd.to_datetime(v)          
+        dt = pd.to_datetime(v, dayfirst=True)          
         dt = dt + pd.Timedelta(hours=3) 
         return dt.isoformat()
     except:
